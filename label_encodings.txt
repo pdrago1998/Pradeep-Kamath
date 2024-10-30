@@ -1,0 +1,23 @@
+Payment:
+  Cash on Delivery -> 0
+  Credit Card -> 1
+  Debit Card -> 2
+  E wallet -> 3
+  UPI -> 4
+
+account_segment:
+  HNI -> 0
+  Regular -> 1
+  Regular Plus -> 2
+  Super -> 3
+  Super Plus -> 4
+
+Marital_Status:
+  Divorced -> 0
+  Married -> 1
+  Single -> 2
+
+Login_device:
+  Computer -> 0
+  Mobile -> 1
+

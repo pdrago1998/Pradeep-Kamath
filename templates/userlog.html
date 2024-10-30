@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="http://127.0.0.1:5000/static/images/favicon.png" type="image/x-icon">
+  <title>churn prediction</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="http://127.0.0.1:5000/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="http://127.0.0.1:5000/static/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="http://127.0.0.1:5000/static/images/hero-bg.jpg" alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_link-container">
+            <a href="" class="contact_link1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Bengaluru,
+              </span>
+            </a>
+            <a href="" class="contact_link2">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="contact_link3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="/">
+              <span>
+                Churn prediction
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="contact_bg_box">
+      <div class="img-box">
+        <img src="http://127.0.0.1:5000/static/images/contact-bg.jpg" alt="">
+      </div>
+    </div>
+    <div class="container">
+      {% if result %}
+        <center><h3>{{result}}</h3></center>
+        <hr><br>
+      {% endif %}
+      <div class="heading_container heading_center">
+        <h2>
+          Churn predictor
+        </h2>
+      </div>
+
+            <form action="/predict" method="post">
+              <div class="contact_form-container">
+                <div class="row">
+                <div class="col-md-4">
+                  <input required type="number" id="tenure" name="tenure" placeholder="Enter tenure">
+
+                    <input required type="number" id="city_tier" name="city_tier" placeholder="Enter city tier">
+
+                    <input required type="number" id="cc_contacted_ly" name="cc_contacted_ly" placeholder="Enter CC contacted LY">
+
+                    <select required  id="payment" name="payment">
+                      <option value="">Select Payment Method</option>
+                      <option value="0">Cash on Delivery</option>
+                      <option value="1">Credit Card</option>
+                      <option value="2">Debit Card</option>
+                      <option value="3">E Wallet</option>
+                      <option value="4">UPI</option>
+                  </select>
+
+                  <select required  id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
+
+                    <input required type="number" id="service_score" name="service_score" placeholder="Enter service score">
+
+               
+                  </div>
+
+                  <div class="col-md-4">
+                    <input required type="number" id="account_user_count" name="account_user_count" placeholder="Enter account user count">
+
+                    <select required  id="account_segment" name="account_segment">
+                      <option value="">Select Account Segment</option>
+                      <option value="0">HNI</option>
+                      <option value="1">Regular</option>
+                      <option value="2">Regular Plus</option>
+                      <option value="3">Super</option>
+                      <option value="4">Super Plus</option>
+                  </select>
+
+                    <input required type="number" id="cc_agent_score" name="cc_agent_score" placeholder="Enter CC agent score">
+            
+                    <select required  id="marital_status" name="marital_status">
+                      <option value="">Select Marital Status</option>
+                      <option value="0">Divorced</option>
+                      <option value="1">Married</option>
+                      <option value="2">Single</option>
+                  </select>
+                    <input required type="number" id="rev_per_month" name="rev_per_month" placeholder="Enter revenue per month">
+            
+                    <input required type="number" id="complain_ly" name="complain_ly" placeholder="Enter complaints LY">
+            
+            
+                  </div>
+
+                  <div class="col-md-4">
+                    <input required type="number" id="rev_growth_yoy" name="rev_growth_yoy" placeholder="Enter revenue growth YoY">
+
+                    <input required type="number" id="coupon_used_for_payment" name="coupon_used_for_payment" placeholder="Enter coupons used for payment">
+            
+                    <input required type="number" id="day_since_cc_connect" name="day_since_cc_connect" placeholder="Enter days since CC connect">
+            
+                    <input required type="number" id="cashback" name="cashback" placeholder="Enter cashback amount">
+            
+                    <select required  id="login_device" name="login_device">
+                      <option value="">Select Login Device</option>
+                      <option value="0">Computer</option>
+                      <option value="1">Mobile</option>
+                  </select>
+
+                    <div style="margin-bottom: 75px;"></div>
+                                     
+                  </div>
+                </div>
+                
+                <div class="btn-box">
+                  <button type="submit">
+                    Predict</button>    
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+
+  <script src="http://127.0.0.1:5000/static/js/jquery-3.4.1.min.js"></script>
+  <script src="http://127.0.0.1:5000/static/js/bootstrap.js"></script>
+  <script src="http://127.0.0.1:5000/static/js/custom.js"></script>
+</body>
+
+</html>
